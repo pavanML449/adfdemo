@@ -1,0 +1,9 @@
+{
+	"name": "traininglakehousedf450",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bf7639eb-35b5-484f-92a9-241180378e97",
+		"tenantId": "348a742c-5019-4976-817e-16e56b0dd6c3"
+	}
+}
