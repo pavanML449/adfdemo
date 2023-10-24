@@ -1,0 +1,12 @@
+{
+	"name": "RestSource",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://free.currconv.com/api/v7/convert?",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
