@@ -122,6 +122,32 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Find SalesDB Tables",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"sqlReaderQuery": " SELECT QUOTENAME(table_schema)+'.'+QUOTENAME(table_\nname) AS Table_Name FROM information_Schema.tables WHERE \ntable_name not in ('watermarktable', 'database_firewall_\nrules')",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "sqldatabase",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						}
 					}
 				],
 				"policy": {
@@ -131,7 +157,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/GeoDelimitedTextSource')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]"
+				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
+				"[concat(variables('factoryId'), '/datasets/sqldatabase')]"
 			]
 		},
 		{
@@ -189,6 +216,24 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/HttpSorce')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sqldatabase')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
 			]
 		},
 		{
