@@ -11,14 +11,17 @@
 		"traininglakehouse449_accountKey": {
 			"value": ""
 		},
+		"websitetrackinglogs_connectionString": {
+			"value": ""
+		},
 		"HttpSorce_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/ PacktPublishing/Data-Engineering-with-Apache-Spark-Delta-Lake-and-Lakehouse/main/project/prep/iplocation/ IP2LOCATION-LITE-DB1.CSV"
 		},
-		"traininglakehouse449_properties_typeProperties_url": {
-			"value": "https://traininglakehouse449.dfs.core.windows.net/"
-		},
 		"RestSource_properties_typeProperties_url": {
 			"value": "https://free.currconv.com/api/v7/convert?"
+		},
+		"traininglakehouse449_properties_typeProperties_url": {
+			"value": "https://traininglakehouse449.dfs.core.windows.net/"
 		}
 	}
 }
