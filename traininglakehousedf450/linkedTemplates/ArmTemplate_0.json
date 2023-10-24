@@ -370,7 +370,7 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"url": "https://trainingkv451.vault.azure.net/secret?api-version=7.0 s/currapikey/b5078f9876654a04a462dbcb667a1bf7",
+							"url": "https://trainingkv451.vault.azure.net/secrets/currapikey/b5078f9876654a04a462dbcb667a1bf7?api-version=7.0",
 							"method": "GET",
 							"headers": {},
 							"authentication": {
