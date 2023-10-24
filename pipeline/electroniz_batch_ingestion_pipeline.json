@@ -48,7 +48,8 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "HttpReadSettings",
-							"requestMethod": "GET"
+							"requestMethod": "GET",
+							"requestTimeout": "00:00:01"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
