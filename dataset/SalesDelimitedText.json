@@ -20,7 +20,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": " @concat(dataset().FileTime,'.',dataset().FileExt)",
+				"fileName": {
+					"value": "@concat(dataset().FileTime,'.',dataset().FileExt)",
+					"type": "Expression"
+				},
 				"folderPath": {
 					"value": "sales/@{activity('Lookup Old Watermark').output.firstRow.table_name}/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}/@{formatDateTime(utcnow(),'dd')}/@{formatDateTime(utcnow(),'HH')}\n",
 					"type": "Expression"
