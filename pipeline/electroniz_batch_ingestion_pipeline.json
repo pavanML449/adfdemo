@@ -166,7 +166,7 @@
 									"referenceName": "sqldatabase",
 									"type": "DatasetReference"
 								},
-								"firstRowOnly": false
+								"firstRowOnly": true
 							}
 						},
 						{
@@ -192,7 +192,7 @@
 									"referenceName": "sqldatabase",
 									"type": "DatasetReference"
 								},
-								"firstRowOnly": false
+								"firstRowOnly": true
 							}
 						},
 						{
@@ -260,7 +260,11 @@
 							"outputs": [
 								{
 									"referenceName": "SalesDelimitedText",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"FileExt": "csv",
+										"FileTime": " @pipeline().TriggerTime"
+									}
 								}
 							]
 						},
