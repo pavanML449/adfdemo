@@ -264,7 +264,7 @@
 									"parameters": {
 										"FileExt": "csv",
 										"FileTime": {
-											"value": "@{formatDateTime(pipeline().TriggerTime, 'yyyyMMddHHmmss')",
+											"value": "@{formatDateTime(pipeline().TriggerTime, 'yyyyMMddHHmmss')}",
 											"type": "Expression"
 										}
 									}
