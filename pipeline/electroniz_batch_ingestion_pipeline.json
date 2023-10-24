@@ -84,7 +84,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText1",
+						"referenceName": "GeoDelimitedTextSync",
 						"type": "DatasetReference"
 					}
 				]
