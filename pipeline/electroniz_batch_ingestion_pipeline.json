@@ -263,7 +263,10 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"FileExt": "csv",
-										"FileTime": " @pipeline().TriggerTime"
+										"FileTime": {
+											"value": "@pipeline().TriggerTime",
+											"type": "Expression"
+										}
 									}
 								}
 							]
