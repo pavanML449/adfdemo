@@ -153,7 +153,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": "SELECT * FROM [dbo].[watermarktable] AS \nWatermarkValue WHERE table_name='@{item().Table_Name}'",
+									"sqlReaderQuery": {
+										"value": "SELECT * FROM [dbo].[watermarktable] AS \nWatermarkValue WHERE table_name='@{item().Table_Name}'",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
@@ -218,7 +221,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": ": SELECT * FROM @{item().Table_Name} WHERE updated_at \n> '@{activity('Lookup Old Watermark').output.firstRow.\nwatermark_value}'",
+									"sqlReaderQuery": {
+										"value": ": SELECT * FROM @{item().Table_Name} WHERE updated_at \n> '@{activity('Lookup Old Watermark').output.firstRow.\nwatermark_value}'",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
