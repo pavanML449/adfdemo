@@ -111,7 +111,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": " SELECT QUOTENAME(table_schema)+'.'+QUOTENAME(table_\nname) AS Table_Name FROM information_Schema.tables WHERE \ntable_name not in ('watermarktable', 'database_firewall_\nrules')",
+						"sqlReaderQuery": "SELECT QUOTENAME(table_schema) + '.' + QUOTENAME(table_name) AS Table_Name\nFROM information_schema.tables\nWHERE table_name NOT IN ('watermarktable', 'database_firewall_rules');\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
