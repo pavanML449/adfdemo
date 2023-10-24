@@ -1,0 +1,18 @@
+{
+	"name": "RestResource1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RestSource",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "convert?q=USD_@{item().Currency}&compact=ultra&apiKey=3fc2e0630a5047f9bab950588329d7ba\t",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	}
+}
