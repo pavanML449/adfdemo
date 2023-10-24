@@ -17,6 +17,9 @@
 		"traininglakehouse449_properties_typeProperties_url": {
 			"value": "https://traininglakehouse449.dfs.core.windows.net/"
 		},
+		"RestSource_properties_typeProperties_url": {
+			"value": "https://free.currconv.com/api/v7/convert?"
+		},
 		"containerUri": {
 			"value": ""
 		},

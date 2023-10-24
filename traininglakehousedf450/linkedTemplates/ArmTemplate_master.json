@@ -23,6 +23,10 @@
 			"type": "string",
 			"defaultValue": "https://traininglakehouse449.dfs.core.windows.net/"
 		},
+		"RestSource_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://free.currconv.com/api/v7/convert?"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -61,6 +65,9 @@
 					},
 					"traininglakehouse449_properties_typeProperties_url": {
 						"value": "[parameters('traininglakehouse449_properties_typeProperties_url')]"
+					},
+					"RestSource_properties_typeProperties_url": {
+						"value": "[parameters('RestSource_properties_typeProperties_url')]"
 					}
 				}
 			},
