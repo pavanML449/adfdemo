@@ -184,7 +184,7 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": "SELECT MAX(updated_at) as NewWatermarkvalue FROM @\n{item().Table_Name}",
+									"sqlReaderQuery": "SELECT MAX(updated_at) as NewWatermarkvalue FROM @{item().Table_Name}",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
