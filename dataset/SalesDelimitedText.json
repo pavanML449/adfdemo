@@ -22,7 +22,7 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": " @concat(dataset().FileTime,'.',dataset().FileExt)",
 				"folderPath": {
-					"value": "sales/@{activity('Lookup Old Watermark').output.\nfirstRow.table_name}/@{formatDateTime(utcnow(),'yyyy')}/@\n{formatDateTime(utcnow(),'MM')}/@\n{formatDateTime(utcnow(),'dd')}/@\n{formatDateTime(utcnow(),'HH')}",
+					"value": "sales/@{activity('Lookup Old Watermark').output.firstRow.table_name}/@{formatDateTime(utcNow(),'yyyy')}/@{formatDateTime(utcNow(),'MM')}/@{formatDateTime(utcNow(),'dd')}/@{formatDateTime(utcNow(),'HH')}\n",
 					"type": "Expression"
 				},
 				"fileSystem": "bronze"

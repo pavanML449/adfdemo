@@ -224,7 +224,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": ": SELECT * FROM @{item().Table_Name} WHERE updated_at \n> '@{activity('Lookup Old Watermark').output.firstRow.\nwatermark_value}'",
+										"value": "SELECT * FROM @{item().Table_Name} WHERE updated_at > '@{activity('Lookup Old Watermark').output.firstRow.watermark_value}'",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
