@@ -240,7 +240,7 @@
 							"typeProperties": {
 								"variableName": "table_name",
 								"value": {
-									"value": "split(replace(replace(@{activity('Lookup Old Watermark').output.firstRow.table_name}, '[', ''), ']', ''), '.')[1]\n",
+									"value": "{split(replace(replace(@{activity('Lookup Old Watermark').output.firstRow.table_name}, '[', ''), ']', ''), '.')[1]}\n",
 									"type": "Expression"
 								}
 							}
