@@ -13,6 +13,10 @@
 			"FileTime": {
 				"type": "string",
 				"defaultValue": "@pipeline().TriggerTime"
+			},
+			"tablename": {
+				"type": "string",
+				"defaultValue": "@{activity('Lookup Old Watermark').output.firstRow.table_name}"
 			}
 		},
 		"annotations": [],
@@ -25,7 +29,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "sales/@{activity('Lookup Old Watermark').output.firstRow.table_name}/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}/@{formatDateTime(utcnow(),'dd')}/@{formatDateTime(utcnow(),'HH')}\n",
+					"value": "sales/pipeline().table_name/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}/@{formatDateTime(utcnow(),'dd')}/@{formatDateTime(utcnow(),'HH')}\n",
 					"type": "Expression"
 				},
 				"fileSystem": "bronze"

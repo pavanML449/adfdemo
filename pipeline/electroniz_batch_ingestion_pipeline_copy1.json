@@ -1,5 +1,5 @@
 {
-	"name": "electroniz_batch_ingestion_pipeline",
+	"name": "electroniz_batch_ingestion_pipeline_copy1",
 	"properties": {
 		"description": "his pipeline will ingest data from sales \ndatabase, currency conversion, geo-location, and \necommerce website tracking",
 		"activities": [
@@ -200,13 +200,13 @@
 							"type": "Copy",
 							"dependsOn": [
 								{
-									"activity": "Lookup Old Watermark",
+									"activity": "Lookup new watermarkvalue",
 									"dependencyConditions": [
 										"Succeeded"
 									]
 								},
 								{
-									"activity": "Lookup new watermarkvalue",
+									"activity": "Set variable2",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -315,14 +315,28 @@
 							}
 						},
 						{
-							"name": "Set variable1",
+							"name": "Set variable2",
 							"type": "SetVariable",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Lookup Old Watermark",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": []
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "table_name",
+								"value": {
+									"value": "split(replace(replace(@{activity('Lookup Old Watermark').output.firstRow.table_name}, '[', ''), ']', ''), '.')[1]\n",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
