@@ -29,7 +29,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "sales/@{activity('Lookup Old Watermark').output.firstRow.table_name)}",
+					"value": "sales/@{activity('Lookup old watermark').output.firstRow.table_name)}",
 					"type": "Expression"
 				},
 				"fileSystem": "bronze"
