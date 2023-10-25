@@ -166,15 +166,53 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "SalesDelimitedText",
-									"type": "DatasetReference",
-									"parameters": {
-										"FileExt": "csv",
-										"FileTime": "@pipeline().TriggerTime",
-										"tablename": "@{activity('Lookup Old Watermark').output.firstRow.table_name}"
-									}
+									"referenceName": "SalesDelimitedText2",
+									"type": "DatasetReference"
 								}
 							]
+						},
+						{
+							"name": "Update Watermark",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Copy data1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[usp_write_watermark]",
+								"storedProcedureParameters": {
+									"LastModifiedtime ": {
+										"value": {
+											"value": "@{activity('Lookup New Watermark').output.firstRow.NewWatermarkvalue}",
+											"type": "Expression"
+										},
+										"type": "Datetime"
+									},
+									"TableName": {
+										"value": {
+											"value": "@{activity('Lookup Old Watermark').output.firstRow.table_name}",
+											"type": "Expression"
+										},
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureSqlDatabase1",
+								"type": "LinkedServiceReference"
+							}
 						}
 					]
 				}
