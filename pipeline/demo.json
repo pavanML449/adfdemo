@@ -1,0 +1,54 @@
+{
+	"name": "demo",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "variable1",
+					"value": "[demo].[store_customers]"
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "variable2 ",
+					"value": {
+						"value": "split(replace(replace(variables('variable1'), '[', ''), ']', ''), '.')[1]\n",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"variable1": {
+				"type": "String"
+			},
+			"variable2 ": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
