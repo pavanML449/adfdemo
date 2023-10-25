@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "*",
+				"fileName": "*.json",
+				"folderPath": "*",
 				"container": "ecommercelogs449"
 			}
 		},
