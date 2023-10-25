@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "currency/@{item().Currency}/@\n{formatDateTime(utcnow(),'yyyy')}/@\n{formatDateTime(utcnow(),'MM')}/@\n{formatDateTime(utcnow(),'dd')}/@\n{formatDateTime(utcnow(),'HH')}",
+					"value": "currency/\n@{item().Currency}/\n@{formatDateTime(utcnow(),'yyyy')}/\n@{formatDateTime(utcnow(),'MM')}/\n@{formatDateTime(utcnow(),'dd')}/\n@{formatDateTime(utcnow(),'HH')}\n",
 					"type": "Expression"
 				},
 				"fileSystem": "bronze"
