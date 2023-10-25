@@ -29,7 +29,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "sales/@{variables('table_name')}/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}/@{formatDateTime(utcnow(),'dd')}/@{formatDateTime(utcnow(),'HH')}\n",
+					"value": "@{variables('folder_directory')}",
 					"type": "Expression"
 				},
 				"fileSystem": "bronze"

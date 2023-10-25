@@ -113,7 +113,7 @@
 									]
 								},
 								{
-									"activity": "Set variable2",
+									"activity": "Set variable3",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -241,6 +241,30 @@
 								"variableName": "table_name",
 								"value": {
 									"value": "{split(replace(replace(@{activity('Lookup Old Watermark').output.firstRow.table_name}, '[', ''), ']', ''), '.')[1]}\n",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set variable3",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Set variable2",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "folder_directory",
+								"value": {
+									"value": "@{concat('sales/', variables('table_name'), '/', formatDateTime(utcnow(),'yyyy/MM/dd/HH'))}",
 									"type": "Expression"
 								}
 							}
@@ -440,6 +464,9 @@
 		],
 		"variables": {
 			"table_name": {
+				"type": "String"
+			},
+			"folder_directory": {
 				"type": "String"
 			}
 		},
