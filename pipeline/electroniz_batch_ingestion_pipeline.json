@@ -313,16 +313,6 @@
 								"referenceName": "AzureSqlDatabase1",
 								"type": "LinkedServiceReference"
 							}
-						},
-						{
-							"name": "Set variable1",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"policy": {
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": []
 						}
 					]
 				}
@@ -522,6 +512,9 @@
 				"type": "String"
 			},
 			"table_name": {
+				"type": "String"
+			},
+			"folder_directory": {
 				"type": "String"
 			}
 		},
