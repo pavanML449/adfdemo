@@ -414,14 +414,6 @@
 				}
 			}
 		],
-		"variables": {
-			"table_name": {
-				"type": "String"
-			},
-			"folder_directory": {
-				"type": "String"
-			}
-		},
 		"annotations": []
 	}
 }
