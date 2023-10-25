@@ -1,5 +1,5 @@
 {
-	"name": "electroniz_batch_ingestion_pipeline_copy2",
+	"name": "electroniz_batch_ingestion_pipeline_v3",
 	"properties": {
 		"description": "his pipeline will ingest data from sales \ndatabase, currency conversion, geo-location, and \necommerce website tracking",
 		"activities": [
@@ -91,7 +91,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": "SELECT MAX(updated_at) as NewWatermarkvalue FROM @{item().Table_Name}",
+									"sqlReaderQuery": {
+										"value": "SELECT MAX(updated_at) as NewWatermarkvalue FROM @{item().Table_Name}",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
@@ -173,7 +176,8 @@
 										"FileTime": {
 											"value": "@{formatDateTime(pipeline().TriggerTime, 'yyyyMMddHHmmss')}",
 											"type": "Expression"
-										}
+										},
+										"tablename": "@{activity('Lookup Old Watermark').output.firstRow.table_name}"
 									}
 								}
 							]
