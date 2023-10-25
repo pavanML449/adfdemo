@@ -1,0 +1,43 @@
+{
+	"name": "CurencyDelimitedText2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "traininglakehouse449",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "currency/@{item().Currency}/@{formatDateTime(utcnow(),'yyyy')}/@formatDateTime(utcnow(),'MM')/@formatDateTime(utcnow(),'dd')/formatDateTime(utcnow(),'HH')",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "product_code",
+				"type": "String"
+			},
+			{
+				"name": "product_name",
+				"type": "String"
+			},
+			{
+				"name": "product_category ",
+				"type": "String"
+			},
+			{
+				"name": "updated_at",
+				"type": "String"
+			}
+		]
+	}
+}
