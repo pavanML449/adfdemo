@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "GeoDelimitedTextSync",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "traininglakehouse449",
@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "geolocation/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}/@{formatDateTime(utcnow(),'dd')}/@{formatDateTime(utcnow(),'HH')}\n",
+					"value": "geolocation/@{formatDateTime(utcNow(),'yyyy')}/@{formatDateTime(utcNow(),'MM')}/@{formatDateTime(utcNow(),'dd')}/@{formatDateTime(utcNow(),'HH')}",
 					"type": "Expression"
 				},
 				"fileSystem": "bronze"

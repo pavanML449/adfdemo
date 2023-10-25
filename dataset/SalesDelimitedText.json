@@ -12,7 +12,11 @@
 			},
 			"FileTime": {
 				"type": "string",
-				"defaultValue": " @pipeline().TriggerTime"
+				"defaultValue": "@pipeline().TriggerTime"
+			},
+			"tablename": {
+				"type": "string",
+				"defaultValue": "@{activity('Lookup Old Watermark').output.firstRow.table_name}"
 			}
 		},
 		"annotations": [],
@@ -20,9 +24,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": " @concat(dataset().FileTime,'.',dataset().FileExt)",
+				"fileName": {
+					"value": "@concat(dataset().FileTime,'.',dataset().FileExt)",
+					"type": "Expression"
+				},
 				"folderPath": {
-					"value": "sales/@{activity('Lookup Old Watermark').output.\nfirstRow.table_name}/@{formatDateTime(utcnow(),'yyyy')}/@\n{formatDateTime(utcnow(),'MM')}/@\n{formatDateTime(utcnow(),'dd')}/@\n{formatDateTime(utcnow(),'HH')}",
+					"value": "sales/@{activity('Lookup Old Watermark').output.firstRow.table_name)}",
 					"type": "Expression"
 				},
 				"fileSystem": "bronze"
