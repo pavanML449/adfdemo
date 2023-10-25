@@ -439,9 +439,6 @@
 			}
 		],
 		"variables": {
-			"table": {
-				"type": "String"
-			},
 			"table_name": {
 				"type": "String"
 			}
