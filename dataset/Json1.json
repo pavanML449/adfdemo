@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "logs/\n@{formatDateTime(utcnow(),'yyyy')}/\n@{formatDateTime(utcnow(),'MM')}/\n@{formatDateTime(utcnow(),'dd')}/\n@{formatDateTime(utcnow(),'HH')}\n",
+					"value": "logs/@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MM')}/@{formatDateTime(utcnow(),'dd')}/@{formatDateTime(utcnow(),'HH')}\n",
 					"type": "Expression"
 				},
 				"fileSystem": "bronze"
